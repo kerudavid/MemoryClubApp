@@ -290,10 +290,10 @@ C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\and
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\android\assets\ZXing.Net.Mobile.Forms.dll
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\android\assets\zxing.portable.dll
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\android\assets\ZXingNetMobile.dll
-C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\androidx\jl\be87d65b-12c4-4f12-9770-5957304f3c1a.jar
+C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\androidx\jl\5c797c3b-fb61-4485-bfed-31e77e2e08a4.jar
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\stamp\_AndroidXJetifyJavaLibraryRules.stamp
-C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\androidx\proguard\061a43be-da99-499b-9aeb-39effcc8b299.txt
-C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\androidx\proguard\fe41f0d0-fa82-4a56-b4c6-d3944882e570.cfg
+C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\androidx\proguard\9b43e43a-cda8-4117-ac9b-602a3de81b98.txt
+C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\androidx\proguard\eec5e825-7812-4d1c-98cd-2c6ffb324383.cfg
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\stamp\_AndroidXJetifyProguardRules.stamp
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\androidx\_AndroidXJetifyProguardRules.jetify
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\stamp\_AndroidXCecilfy.stamp

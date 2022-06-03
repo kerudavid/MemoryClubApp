@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MemoryClubApp.Views.Login"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:controls="clr-namespace:Plugin.CrossPlatformTintedImage.Abstractions;assembly=Plugin.CrossPlatformTintedImage.Abstractions"
+    xmlns:global="clr-namespace:Global.InputForms;assembly=Global.InputForms"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="PrimaryColor">#1ABC9C</Color>
+            <Color x:Key="BodyColor">#515A5A</Color>
+            <Color x:Key="Blue">#154360</Color>
+            <Color x:Key="Yellow">#FEB900</Color>
+            <!---284FFF  0936FF   0659FF  2595FF  FEB900  FED400-->
+            <Color x:Key="LightBlue">#0659FF</Color>
+            <Color x:Key="gray">#F8F9F9</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <RelativeLayout>
+            <StackLayout RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}">
+                <StackLayout
+                    VerticalOptions="FillAndExpand"
+                    Padding="10"
+                    BackgroundColor="White"
+                    Spacing="30">
+                    <yummy:PancakeView
+                        Margin="0,20,0,0"
+                        HorizontalOptions="CenterAndExpand"
+                        CornerRadius="15">
+                        <!--<yummy:PancakeView.Shadow>
+                            <yummy:DropShadow Color="#000000" Offset="10,10" BlurRadius="10"/>
+                        </yummy:PancakeView.Shadow>-->
+                        <!--<Image
+                            WidthRequest="350"
+                            HorizontalOptions="CenterAndExpand"
+                            Source="logo.png"/>-->
+                        <StackLayout>
+                            <Label
+                                Text="Club de la Memoria"
+                                FontAttributes="Bold"
+                                FontSize="40"
+                                TextColor="{StaticResource PrimaryColor}"/>
+                            <Label
+                                Text="Bienvenidos"
+                                FontSize="30"
+                                FontAttributes="Bold"
+                                TextColor="{StaticResource LightBlue}"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"/>
+                            <Image
+                                WidthRequest="150"
+                                Source="felicidad"/>
+                            <!-- <controls:TintedImage
+                                WidthRequest="100"
+                                HorizontalOptions="CenterAndExpand"
+                                Source="felicidad1.png"
+                                TintColor="{StaticResource Yellow}"/>-->
+                        </StackLayout>
+                       
+                    </yummy:PancakeView>
+                    <StackLayout
+                        Spacing="20">
+                        
+                        <Label
+                            Text="Usuario"
+                            Margin="20,0"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource BodyColor}"/>
+                        <yummy:PancakeView
+                            BackgroundColor="{StaticResource gray}"
+                            CornerRadius="20"
+                            Border="{yummy:BorderMarkup Color={StaticResource PrimaryColor}, Thickness='1'}"
+                            Padding="15,5">
+                            <yummy:PancakeView.Shadow>
+                                <yummy:DropShadow Color="#000000" Offset="10,10" BlurRadius="10"/>
+                            </yummy:PancakeView.Shadow>
+                            <global:BlankEntry
+                                x:Name="Usuario"
+                                BackgroundColor="Transparent"
+                                TextColor="{StaticResource BodyColor}"
+                                FontSize="18"/>
+                        </yummy:PancakeView>
+
+                        <Label
+                            Text="Contraseña"
+                            FontSize="20"
+                            Margin="20,0"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource BodyColor}"/>
+                        <yummy:PancakeView
+                            BackgroundColor="{StaticResource gray}"
+                            CornerRadius="20"
+                            Border="{yummy:BorderMarkup Color={StaticResource PrimaryColor}, Thickness='1'}"
+                            Padding="15,5">
+                            <yummy:PancakeView.Shadow>
+                                <yummy:DropShadow Color="#000000" Offset="10,10" BlurRadius="10"/>
+                            </yummy:PancakeView.Shadow>
+                            <global:BlankEntry
+                                x:Name="Password"
+                                BackgroundColor="Transparent"
+                                TextColor="{StaticResource BodyColor}"
+                                FontSize="18"
+                                IsPassword="True"/>
+                        </yummy:PancakeView>
+
+                        <yummy:PancakeView
+                            Margin="0,20"
+                            BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            CornerRadius="20">
+                            <yummy:PancakeView.Shadow>
+                                <yummy:DropShadow Color="#000000" Offset="10,10" BlurRadius="5"/>
+                            </yummy:PancakeView.Shadow>
+                            <Button
+                                BackgroundColor="{StaticResource PrimaryColor}"
+                                WidthRequest="150"
+                                HeightRequest="40"
+                                Text="Ingresar"
+                                TextColor="White"
+                                Clicked="LoginButton_Clicked"/>
+
+                        </yummy:PancakeView>
+                    </StackLayout>
+                    
+                </StackLayout>
+            </StackLayout>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "hgbSprQao27KtDqlI+8XtbbIaVVfbMnOVe5NKOADjSYjREbuWX/BFD+2e7/3Allqj5wk4akyITdg0CVsSnEHhg==",
+  "dgSpecHash": "89vsgy3T04744lQLKyvPCzc9dPLN9wsSCFD0NgpUHKUnH3VGpOfrlXKqTuZOOZrV+KcsV2S2k2zz/gCVrTOMuw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Keru\\source\\repos\\MemoryClubApp\\MemoryClubApp\\MemoryClubApp.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Keru\\.nuget\\packages\\com.airbnb.xamarin.forms.lottie\\4.1.0\\com.airbnb.xamarin.forms.lottie.4.1.0.nupkg.sha512",
     "C:\\Users\\Keru\\.nuget\\packages\\global.inputforms\\1.0.4\\global.inputforms.1.0.4.nupkg.sha512",
     "C:\\Users\\Keru\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Keru\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",

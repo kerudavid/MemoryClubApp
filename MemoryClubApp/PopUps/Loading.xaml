@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Name="popCharge"
+    x:Class="MemoryClubApp.PopUps.Loading"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+
+    <AbsoluteLayout
+        x:Name="stlCharge"
+        Padding="20,20,20,20"
+        BackgroundColor="Transparent"
+        HorizontalOptions="Fill"
+        VerticalOptions="Fill">
+        <Label
+            x:Name="lblCharge"
+            AbsoluteLayout.LayoutBounds="0.5,0.30,150,100"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            HorizontalTextAlignment="Center"
+            FontSize="15"
+            TextColor="#585656"
+            IsVisible="false"
+            Text="Estamos cargando&#10;tu información"/>
+        <forms:AnimationView 
+            x:Name="labelLoading"
+            AbsoluteLayout.LayoutBounds="0.5,0.5,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            Speed="1"
+            IsVisible="true"
+            Animation="LoadingV1.json" 
+            AutoPlay="True"
+            RepeatMode="Infinite"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand"
+            WidthRequest="175"
+            HeightRequest="175"
+            Margin="0"
+            BackgroundColor="Transparent"/>
+
+    </AbsoluteLayout>
+</pages:PopupPage>

@@ -1,5 +1,9 @@
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.iOS\bin\iPhone\Debug\MemoryClubApp.iOS.exe
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.iOS\bin\iPhone\Debug\MemoryClubApp.iOS.pdb
+C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.iOS\bin\iPhone\Debug\Lottie.iOS.dll
+C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.iOS\bin\iPhone\Debug\Lottie.iOS.pdb
+C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.iOS\bin\iPhone\Debug\Lottie.Forms.dll
+C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.iOS\bin\iPhone\Debug\Lottie.Forms.pdb
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.iOS\bin\iPhone\Debug\Global.InputForms.dll
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.iOS\bin\iPhone\Debug\Global.InputForms.iOS.dll
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.iOS\bin\iPhone\Debug\Newtonsoft.Json.dll

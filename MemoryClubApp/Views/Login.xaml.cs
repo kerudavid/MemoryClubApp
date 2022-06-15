@@ -8,6 +8,9 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MemoryClubApp.Services;
+using MemoryClubApp.Interfaces;
+using MemoryClubApp.PopUps;
+using Rg.Plugins.Popup.Services;
 
 namespace MemoryClubApp.Views
 {
@@ -16,60 +19,109 @@ namespace MemoryClubApp.Views
     {
         public Login()
         {
-            InitializeComponent();
-            //Preferences.Set("ParentUsername", "Valor que quiero poner");
-
-
-            //Para recuperar
-            //int parentId = Convert.ToInt32(Preferences.Get("ParentId", "0"));
+            InitializeComponent();    
         }
 
-        private async void LoginButton_Clicked(object sender, EventArgs e)
+        public async void SinInternet()
         {
             try
             {
-                if (string.IsNullOrEmpty(Password.Text))
-                {
-                    await DisplayAlert("Advertencia", "Ingrese la contraseña","Ok");
-                    return;
-                }
-                if (string.IsNullOrEmpty(Usuario.Text))
-                {
-                    await DisplayAlert("Advertencia","Ingrese el usuario","Ok");
-                    return;
-                }
-                UsuarioLoginModel usuario = new UsuarioLoginModel();
-
-                usuario.usuario = Usuario.Text;
-                usuario.password = Password.Text;
-
-
-                LoginResponseModel responseModel = new LoginResponseModel();
-                responseModel = await new LoginService().Login(usuario);
-
-                if (responseModel != null)
-                {
-                    if (responseModel.Success)
-                    {
-                        usuario.IdUsuario = responseModel.IdUsuario;
-                        await Navigation.PushAsync(new Menu(usuario, responseModel.Sucursal));
-                    }
-                    else
-                    {
-                        _ = DisplayAlert("Error",responseModel.MessageError, "OK");
-                    }
-                }
-                else
-                {
-                    _ = DisplayAlert("Error", "Ocurrió un error inesperado. Inténtelo de nuevo.", "OK");
-                    _ = Navigation.PushAsync(new Login());
-                }
+                /*await PopupNavigation.Instance.PushAsync(new Alert("Alerta", "El dispositivo no tiene conexión a Internet este momento. \nAlgunas funcionalidades no estaran disponibles"));
+                await Navigation.PopToRootAsync();*/
+                await PopupNavigation.Instance.PopAsync();
+                await PopupNavigation.Instance.PushAsync(new Alert("Aviso", "Su equipo no cuenta con Internet en este momento"));
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Error", "Ha ocurrido un error inesperado. Inténtelo de nuevo."+ex.Message, "Ok");
+                await PopupNavigation.Instance.PopAsync();
+                await PopupNavigation.Instance.PushAsync(new Alert("Aviso", "Cominíquese con soporte. " + ex.Message));
+
             }
-            
+        }
+
+
+        private async void LoginButton_Clicked(object sender, EventArgs e)
+        {
+            await PopupNavigation.Instance.PushAsync(new Loading(false));
+
+            var current = Connectivity.NetworkAccess;
+
+            if (current == NetworkAccess.Internet)
+            {
+                Title = "Recuperación de Clases";
+                /*int signaLevel = DependencyService.Get<IWifiSignal>().GetStrenght();
+
+                if (signaLevel <= 2.5 && signaLevel!=2022)
+                    DisplayAlert("Alerta", "La velocidad de conexión es muy baja", "Ok");*/
+
+                try
+                {
+                    if (string.IsNullOrEmpty(Password.Text) || string.IsNullOrEmpty(Usuario.Text))
+                    {
+                        
+                        await PopupNavigation.Instance.PopAsync();
+                        await PopupNavigation.Instance.PushAsync(new Alert("Aviso", "Ingrese todos los campos"));
+                        
+                        return;
+                    }
+                    if (string.IsNullOrEmpty(Password.Text))
+                    {
+                        await PopupNavigation.Instance.PopAsync();
+                        await PopupNavigation.Instance.PushAsync(new Alert("Aviso", "Ingrese la contraseña"));
+                       
+                        return;
+                    }
+                    if (string.IsNullOrEmpty(Usuario.Text))
+                    {
+                        await PopupNavigation.Instance.PopAsync();
+                        await PopupNavigation.Instance.PushAsync(new Alert("Aviso", "Ingrese el usuario"));
+                        
+                        return;
+                    }
+                    UsuarioLoginModel usuario = new UsuarioLoginModel();
+
+                    usuario.usuario = Usuario.Text;
+                    usuario.password = Password.Text;
+
+
+                    LoginResponseModel responseModel = new LoginResponseModel();
+                        responseModel = await new LoginService().Login(usuario);
+
+                    if (responseModel != null)
+                    {
+                        if (responseModel.Success)
+                        {
+                            usuario.IdUsuario = responseModel.IdUsuario;
+                            await PopupNavigation.Instance.PopAsync();
+                            await Navigation.PushAsync(new Menu(usuario, responseModel.Sucursal));
+                        }
+                        else
+                        {
+                            await PopupNavigation.Instance.PopAsync();
+                            await PopupNavigation.Instance.PushAsync(new Alert("Aviso", responseModel.MessageError));
+                            
+                        }
+                    }
+                    else
+                    {
+                        await PopupNavigation.Instance.PopAsync();
+                        await PopupNavigation.Instance.PushAsync(new Alert("Error", "Ocurrió un error inesperado. Inténtelo de nuevo."));
+                       
+                        _ = Navigation.PushAsync(new Login());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    await PopupNavigation.Instance.PopAsync();
+                    await PopupNavigation.Instance.PushAsync(new Alert("Error", "Ha ocurrido un error inesperado. Inténtelo de nuevo. " + ex.Message));
+                    
+                }
+            }
+            else
+            {
+                //var mainPage = Application.Current.MainPage;
+                SinInternet();
+            }
         }
     }
 }

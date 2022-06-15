@@ -16,6 +16,16 @@
             <Color x:Key="Blue2">#2C7AA9</Color>
             <Color x:Key="violeta">#652D96</Color>
             <Color x:Key="gray">#ECECEC</Color>
+            <Color x:Key="green">#43C900</Color>
+            <Color x:Key="LightBlue">#0659FF</Color>
+            <Color x:Key="pl1">#3498DB</Color>
+            <Color x:Key="pl2">#17A589</Color>
+            <Color x:Key="pl3">#2E86C1</Color>
+            <Color x:Key="pl4">#7FB3D5</Color>
+            <Color x:Key="pl5">#5499C7</Color>
+            <Color x:Key="plG1">#566573</Color>
+            <Color x:Key="plG2">#2C3E50</Color>
+            
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -24,21 +34,27 @@
             HorizontalOptions="FillAndExpand"
             BackgroundColor="White"
             Padding="10">
-            <yummy:PancakeView
+            <!--<yummy:PancakeView
                 HorizontalOptions="CenterAndExpand"
                 CornerRadius="15">
                 <Image 
                     Source="logo.png"
                     WidthRequest="350"
                     HorizontalOptions="CenterAndExpand"/>
-            </yummy:PancakeView>
+            </yummy:PancakeView>-->
+            <Label
+                Text="Menú inicio"
+                FontSize="40"
+                FontAttributes="None"
+                HorizontalOptions="CenterAndExpand"
+                TextColor="{StaticResource pl3}"/>
             <StackLayout
                 Orientation="Horizontal"
                 Spacing="0"
                 Margin="0,25">
                 <yummy:PancakeView
                     VerticalOptions="Center"
-                    HorizontalOptions="StartAndExpand"
+                    HorizontalOptions="EndAndExpand"
                     
                     BackgroundColor="White"
                     Padding="10"
@@ -51,7 +67,7 @@
                         Spacing="10"
                         Orientation="Horizontal">
                         <controls:TintedImage
-                            TintColor="#43C900"
+                            TintColor="{StaticResource pl2}"
                             WidthRequest="35"
                             Source="usuario"/>
                         <Label
@@ -72,7 +88,7 @@
                     BackgroundColor="Transparent"
                     CornerRadius="20">
                     <global:ButtonContent
-                        BackgroundColor="{StaticResource PrimaryColor}"
+                        BackgroundColor="{StaticResource pl4}"
                         Clicked="AsistenciaButtonClicked">
                         <StackLayout 
                             Padding="20"
@@ -85,9 +101,10 @@
                                 HorizontalOptions="Start"
                                 Text="Asistencia"/>
                             <controls:TintedImage
-                            WidthRequest="50"
-                            HeightRequest="50"
-                            Source="asistencia"/>
+                                WidthRequest="50"
+                                HeightRequest="50"
+                                Source="asistencia"
+                                TintColor="{StaticResource plG2}"/>
                         </StackLayout>
                     </global:ButtonContent>
                 </yummy:PancakeView>
@@ -95,7 +112,9 @@
                     BackgroundColor="Transparent"
                     CornerRadius="20">
                     <global:ButtonContent
-                        BackgroundColor="{StaticResource Blue2}">
+                        BackgroundColor="{StaticResource pl5}"
+                        Clicked="TransporteButton_Clicked">
+                        
                         <StackLayout 
                             Padding="20"
                             Orientation="Horizontal"
@@ -109,6 +128,7 @@
                             <controls:TintedImage
                                 WidthRequest="50"
                                 HeightRequest="50"
+                                TintColor="{StaticResource plG2}"
                                 Source="transporte"/>
                         </StackLayout>
                     </global:ButtonContent>
@@ -117,7 +137,8 @@
                     BackgroundColor="Transparent"
                     CornerRadius="20">
                     <global:ButtonContent
-                        BackgroundColor="{StaticResource violeta}">
+                        BackgroundColor="{StaticResource PrimaryColor}"
+                        Clicked="CateringButton_Clicked">
                         <StackLayout 
                             Padding="20"
                             Orientation="Horizontal"
@@ -129,6 +150,7 @@
                                 HorizontalOptions="Start"
                                 Text="Catering"/>
                             <controls:TintedImage
+                                TintColor="{StaticResource plG2}"
                                 WidthRequest="50"
                                 HeightRequest="50"
                                 Source="restaurante"/>

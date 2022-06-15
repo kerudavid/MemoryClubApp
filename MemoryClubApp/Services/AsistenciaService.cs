@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MemoryClubApp.Services
 {
-    public class AsistenciaService
+    public class AsistenciaService : IAsistenciaService
     {
         public async Task<AsistenciaResponseModel> Asistencia(AsistenciaModel asistenciaModel)
         {

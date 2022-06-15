@@ -19,8 +19,8 @@ namespace MemoryClubApp.Views
         {
             // *esto evita que se genere un nullReference exception
             userInfo = usuario;
-            
-            Preferences.Set("UserName", userInfo.IdUsuario.ToString());
+            Preferences.Set("UserName", userInfo.usuario);
+            Preferences.Set("IdUserName", userInfo.IdUsuario.ToString());
             Preferences.Set("UserSucursal", sucursal.ToString());
             
             //Para recuperar
@@ -39,6 +39,16 @@ namespace MemoryClubApp.Views
         private void AsistenciaButtonClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Asistencia());   
+        }
+
+        private void CateringButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Catering());
+        }
+
+        private void TransporteButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Transporte());
         }
     }
 }

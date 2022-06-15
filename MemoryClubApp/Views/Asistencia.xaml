@@ -24,7 +24,15 @@
             <Color x:Key="rechazado">#B70000</Color>
             <Color x:Key="advertencia">#FF8701</Color>
             <Color x:Key="gray">#F8F9F9</Color>
-            <!--<Style TargetType="NavigationPage">
+            <Color x:Key="pl1">#3498DB</Color>
+            <Color x:Key="pl2">#17A589</Color>
+            <Color x:Key="pl3">#2E86C1</Color>
+            <Color x:Key="pl4">#7FB3D5</Color>
+            <Color x:Key="pl5">#5499C7</Color>
+            <Color x:Key="plG1">#566573</Color>
+            <Color x:Key="plG2">#2C3E50</Color>
+            <!--
+            <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource PrimaryColor}" />
                 <Setter Property="BarTextColor" Value="White" />
             </Style>-->
@@ -39,39 +47,31 @@
                 Spacing="30">
                 <Label
                     FontSize="35"
-                    TextColor="Black"
+                    TextColor="{StaticResource plG1}"
                     HorizontalOptions="Start"
                     Text="Asistencia"/>
                 <controls:TintedImage
                     WidthRequest="35"
                     HeightRequest="35"
-                    TintColor="{StaticResource LightBlue}"
+                    TintColor="{StaticResource pl3}"
                     Source="asistencia"/>
             </StackLayout>
             <StackLayout
                 VerticalOptions="FillAndExpand">
-                <Label
-                    x:Name="lblEstado"
-                    FontSize="30"
-                    TextColor="White"
-                    FontAttributes="Bold"
-                    HorizontalOptions="FillAndExpand"
-                    HorizontalTextAlignment="Center"
-                    VerticalOptions="Start"/>
-
-
                 <yummy:PancakeView
-                    Margin="0,60"
+                    x:Name="yummyBtnQR"
+                    Margin="0,60,0,30"
                     VerticalOptions="Start"
                     HorizontalOptions="CenterAndExpand"
                     WidthRequest="250">
                     <yummy:PancakeView.Shadow>
-                        <yummy:DropShadow Color="Black" BlurRadius="10"/>
+                        <yummy:DropShadow Color="#000" BlurRadius="7"/>
                     </yummy:PancakeView.Shadow>
                     <yummy:PancakeView.Border>
-                        <yummy:Border Thickness="2" Color="Black" />
+                        <yummy:Border Thickness="2" Color="{StaticResource PrimaryColor}" />
                     </yummy:PancakeView.Border>
                     <global:ButtonContent
+                        x:Name="qrBtn"
                         Clicked="PruebaButton_Clicked">
                         <StackLayout
                             Margin="10">
@@ -89,19 +89,22 @@
                         </StackLayout>
                     </global:ButtonContent>
                 </yummy:PancakeView>
-                
-            </StackLayout>
-            <Label
-                    x:Name="lblPrueba"
-                    FontSize="22"
-                    BackgroundColor="AntiqueWhite"
-                    TextColor="Black"/>
-            <!--
-            
-            <Button
-                BackgroundColor="Black"
-                Clicked="PruebaButton_Clicked"/> -->
+                <controls:TintedImage
+                    x:Name="imgInfo"
+                    WidthRequest="100"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    />
+                <Label
+                    x:Name="lblEstado"
+                    FontSize="30"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    HorizontalOptions="FillAndExpand"
+                    HorizontalTextAlignment="Center"
+                    VerticalOptions="End"/>
 
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

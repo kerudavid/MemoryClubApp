@@ -52,15 +52,19 @@ namespace MemoryClubApp.Views
 
         private async void PruebaButton_Clicked(object sender, EventArgs e)
         {
+            imgInfo.IsVisible=false;
+            lblEstado.IsVisible = false;
             try
             {
-                //var scanner = new ZXing.Mobile.MobileBarcodeScanner();
                 var scanner = new ZXing.Mobile.MobileBarcodeScanner();          
-                scanner.TopText = "Hola";
-                scanner.BottomText = "Holii";
+                scanner.TopText = "Asistencia";
+                
+                //scanner.BottomText = "Holii";
                 var result = await scanner.Scan();
                 if (result!=null)
                 {
+                    qrBtn.IsEnabled=false;
+                    
                     //Trata de convertir el resultado Text a Entero
                     try
                     {
@@ -68,26 +72,47 @@ namespace MemoryClubApp.Views
                     }
                     catch
                     {
+                        lblEstado.IsVisible = true;
                         lblEstado.Text = "Error, código incorrecto";
                         System.Drawing.Color adverC = advertenciaColor;
+
+                        imgInfo.IsVisible=true;
+                        imgInfo.Source = "Alerta.png";
+                        imgInfo.TintColor = adverC;
+  
                         lblEstado.BackgroundColor = adverC;
+
+                        qrBtn.IsEnabled = true;
+
                         return;
                     }
                     //Si pudo transformar el texto a numerico valida si existe dentro del codigo de clientes
 
                     AsistenciaModel asistencia = new AsistenciaModel();
-                    asistencia.CodigoCliente = clienteModel.Where(x => x.IdCliente == numVal).Select(x => x.IdCliente).FirstOrDefault();// Where(x=> x.IdCliente==numVal);
+                    asistencia.CodigoCliente = clienteModel.Where(x => x.CI == numVal.ToString()).Select(x => x.IdCliente).FirstOrDefault();// Where(x=> x.IdCliente==numVal);
                     
                     if (asistencia.CodigoCliente <= 0)
                     {
+                        lblEstado.IsVisible = true;
+
                         lblEstado.Text = "Código Incorrecto";
+
                         System.Drawing.Color adverC = advertenciaColor;
+
+                        imgInfo.IsVisible = true;
+                        imgInfo.Source = "Alerta.png";
+                        imgInfo.TintColor = adverC;
+
                         lblEstado.BackgroundColor= adverC;
+
+                        qrBtn.IsEnabled = true;
+
                         return;
                     }
 
                     //Asisgna nos valores del objeto asistecia
-                    asistencia.Usuario = Convert.ToInt32(Preferences.Get("UserName","0"));
+                    asistencia.Usuario = Convert.ToInt32(Preferences.Get("IdUserName","0"));
+                    asistencia.NombreUsuario = Preferences.Get("UserName", "0");
                     asistencia.Sucursal = Convert.ToInt32(Preferences.Get("UserSucursal", "0"));
 
                     string entrada = DateTime.Now.ToString("HH:mm");
@@ -97,27 +122,42 @@ namespace MemoryClubApp.Views
                     asistencia.FechaMod = DateTime.Now.Date;
                     asistencia.Fecha = DateTime.ParseExact(fecha,"MM-dd-yyyy",null);
 
-                    //lblPrueba.Text = result.Text;
 
                     AsistenciaResponseModel asistenciaResponseModel = new AsistenciaResponseModel();
                     asistenciaResponseModel = await new AsistenciaService().Asistencia(asistencia);
                     if (asistenciaResponseModel.Success)
-                    {
-                        
-
+                    {                       
                         // Implicitly convert from a System.Drawing.Color to a Xamarin.Forms.Color
                         Xamarin.Forms.Color xfColor2 = sdColor;
                         // Implicity convert from a Xamarin.Forms.Color to a System.Drawing.Color
                         System.Drawing.Color exitosoC = exitosoColor;
 
+                        lblEstado.IsVisible = true;
+
                         lblEstado.Text = "Registro Exitoso!";
                         lblEstado.BackgroundColor= exitosoC;
+
+                        imgInfo.IsVisible = true;
+                        imgInfo.Source = "Aprobado.png";
+                        imgInfo.TintColor = exitosoC;
+
+                        qrBtn.IsEnabled=true;
                     }
                     else
                     {
+                        lblEstado.IsVisible = true;
+
                         lblEstado.Text = asistenciaResponseModel.MessageError;
+                        
                         System.Drawing.Color errorC = errorColor;
                         lblEstado.BackgroundColor = errorC;
+
+                        imgInfo.IsVisible=true;
+                        imgInfo.Source = "Rechazado.png";
+                        imgInfo.TintColor = errorC;
+
+                        qrBtn.IsEnabled = true;
+
                     }
 
                 }
@@ -125,6 +165,8 @@ namespace MemoryClubApp.Views
             catch(Exception ex)
             {
                 await DisplayAlert("Advertencia", "Ha ocurrido un error &#10;"+ex.Message, "Ok");
+
+                qrBtn.IsEnabled = true;
             }
         }
     }

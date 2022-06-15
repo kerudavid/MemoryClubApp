@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MemoryClubApp.Interfaces
 {
-    internal interface IAsistenciaService
+    public interface IAsistenciaService
     {
     }
 }

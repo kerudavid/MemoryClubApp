@@ -53,7 +53,8 @@
             <StackLayout
                 VerticalOptions="FillAndExpand">
                 <yummy:PancakeView
-                    Margin="0,60"
+                    x:Name="yummyBtnQR"
+                    Margin="0,60,0,30"
                     VerticalOptions="Start"
                     HorizontalOptions="CenterAndExpand"
                     WidthRequest="250">
@@ -64,6 +65,7 @@
                         <yummy:Border Thickness="2" Color="{StaticResource PrimaryColor}" />
                     </yummy:PancakeView.Border>
                     <global:ButtonContent
+                        x:Name="qrBtn"
                         Clicked="PruebaButton_Clicked">
                         <StackLayout
                             Margin="10">
@@ -81,6 +83,12 @@
                         </StackLayout>
                     </global:ButtonContent>
                 </yummy:PancakeView>
+                <controls:TintedImage
+                    x:Name="imgInfo"
+                    WidthRequest="100"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    />
                 <Label
                     x:Name="lblEstado"
                     FontSize="30"

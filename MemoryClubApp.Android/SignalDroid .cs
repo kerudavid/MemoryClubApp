@@ -23,8 +23,8 @@ namespace MemoryClubApp.Droid
             Context _context = Android.App.Application.Context;
 
 
-            WifiManager wifiManager = null;
-            wifiManager = (WifiManager)_context.GetSystemService(Context.WifiService);
+            WifiManager wifiManager = WifiManager.FromContext(Android.App.Application.Context);
+            //wifiManager = (WifiManager)_context.GetSystemService(Context.WifiService);
 
             if (wifiManager == null)
             {
@@ -34,8 +34,7 @@ namespace MemoryClubApp.Droid
             int numberOfLevels = 5;
 
 #pragma warning disable CS0618 // Type or member is obsolete
-            WifiInfo wifiInfo = null;
-            wifiInfo= wifiManager.ConnectionInfo;
+            WifiInfo wifiInfo =  wifiManager.ConnectionInfo;
 #pragma warning restore CS0618 // Type or member is obsolete
 
             if (wifiInfo == null)

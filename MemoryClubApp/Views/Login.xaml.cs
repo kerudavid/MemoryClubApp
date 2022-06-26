@@ -49,10 +49,10 @@ namespace MemoryClubApp.Views
             if (current == NetworkAccess.Internet)
             {
                 Title = "Recuperación de Clases";
-                /*int signaLevel = DependencyService.Get<IWifiSignal>().GetStrenght();
+                int signaLevel = DependencyService.Get<IWifiSignal>().GetStrenght();
 
                 if (signaLevel <= 2.5 && signaLevel!=2022)
-                    DisplayAlert("Alerta", "La velocidad de conexión es muy baja", "Ok");*/
+                    await DisplayAlert("Alerta", "La velocidad de conexión es muy baja", "Ok");
 
                 try
                 {

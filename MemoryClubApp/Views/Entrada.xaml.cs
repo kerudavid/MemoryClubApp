@@ -18,9 +18,11 @@ namespace MemoryClubApp.Views
         public static Xamarin.Forms.Color errorColor = Xamarin.Forms.Color.FromRgb(183, 0, 0);
         public static Xamarin.Forms.Color advertenciaColor = Xamarin.Forms.Color.FromRgb(255, 135, 1);
         public static System.Drawing.Color sdColor = System.Drawing.Color.FromArgb(38, 127, 0);
+        
         public static ClienteResponseModel clienteResponseModel = new ClienteResponseModel();
         public static List<ColaboradorModel> colabList = new List<ColaboradorModel>();
         public static List<ClienteModel> clienteModel = new List<ClienteModel>();
+        
         public static int numVal = 0;
         public Entrada(List<ColaboradorModel> colaboradorListModel)
         {
@@ -53,7 +55,10 @@ namespace MemoryClubApp.Views
 
         private async void PruebaButton_Clicked(object sender, EventArgs e)
         {
+
+            imgInfo.IsVisible = false;
             lblEstado.IsVisible = false;
+
             try
             {
                 //var scanner = new ZXing.Mobile.MobileBarcodeScanner();
@@ -62,6 +67,7 @@ namespace MemoryClubApp.Views
 
                 //scanner.BottomText = "Holii";
                 var result = await scanner.Scan();
+
                 if (result != null)
                 {
                     //Trata de convertir el resultado Text a Entero
@@ -73,10 +79,20 @@ namespace MemoryClubApp.Views
                     {
                         lblEstado.IsVisible = true;
                         lblEstado.Text = "Error, código incorrecto";
+
                         System.Drawing.Color adverC = advertenciaColor;
+
                         lblEstado.BackgroundColor = adverC;
+
+                        imgInfo.IsVisible = true;
+                        imgInfo.Source = "Alerta.png";
+                        imgInfo.TintColor = adverC;
+
+                        qrBtn.IsEnabled = true;
+
                         return;
                     }
+
                     //Si pudo transformar el texto a numerico valida si existe dentro del codigo de clientes
                     Constantes tipoPersona = new Constantes();
                     TransporteModel transporteModel = new TransporteModel();
@@ -88,20 +104,21 @@ namespace MemoryClubApp.Views
                     {                   
                         lblEstado.IsVisible = true;
                         lblEstado.Text = "Código Incorrecto";
+
                         System.Drawing.Color adverC = advertenciaColor;
+
                         lblEstado.BackgroundColor = adverC;
+
+                        imgInfo.IsVisible = true;
+                        imgInfo.Source = "Alerta.png";
+                        imgInfo.TintColor = adverC;
+
+                        qrBtn.IsEnabled = true;
+
                         return;                     
                     }
+
                     transporteModel.IdTransportista = clienteModel.Where(x => x.CI == numVal.ToString()).Select(x => x.IdTransportista).FirstOrDefault();
-                    /*
-                    if (transporteModel.IdTransportista <= 0)
-                    {
-                        lblEstado.IsVisible = true;
-                        lblEstado.Text = "El cliente no tiene asignado un transportista.";
-                        System.Drawing.Color adverC = advertenciaColor;
-                        lblEstado.BackgroundColor = adverC;
-                        return;
-                    }*/
 
                     //Asisgna nos valores del objeto asistecia
                     transporteModel.Usuario = Convert.ToInt32(Preferences.Get("IdUserName", "0"));
@@ -121,22 +138,38 @@ namespace MemoryClubApp.Views
 
                     TransporteResponseModel transporteResponseModel = new TransporteResponseModel();
                     transporteResponseModel = await new TransporteService().Entrada(transporteModel);
+                    
                     if (transporteResponseModel.Success)
                     {
                         // Implicitly convert from a System.Drawing.Color to a Xamarin.Forms.Color
                         Xamarin.Forms.Color xfColor2 = sdColor;
                         // Implicity convert from a Xamarin.Forms.Color to a System.Drawing.Color
                         System.Drawing.Color exitosoC = exitosoColor;
+
                         lblEstado.IsVisible = true;
                         lblEstado.Text = "Registro Exitoso!";
                         lblEstado.BackgroundColor = exitosoC;
+
+                        imgInfo.IsVisible = true;
+                        imgInfo.Source = "Aprobado.png";
+                        imgInfo.TintColor = exitosoC;
+
+                        qrBtn.IsEnabled = true;
                     }
                     else
                     {
                         lblEstado.IsVisible = true;
                         lblEstado.Text = transporteResponseModel.MessageError;
+
                         System.Drawing.Color errorC = errorColor;
+
                         lblEstado.BackgroundColor = errorC;
+
+                        imgInfo.IsVisible = true;
+                        imgInfo.Source = "Rechazado.png";
+                        imgInfo.TintColor = errorC;
+
+                        qrBtn.IsEnabled = true;
                     }
 
                 }
@@ -144,6 +177,7 @@ namespace MemoryClubApp.Views
             catch (Exception ex)
             {
                 await DisplayAlert("Advertencia", "Ha ocurrido un error &#10;" + ex.Message, "Ok");
+                qrBtn.IsEnabled = true;
             }
         }
     }

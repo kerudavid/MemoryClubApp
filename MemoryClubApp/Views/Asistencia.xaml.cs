@@ -73,17 +73,17 @@ namespace MemoryClubApp.Views
                     catch
                     {
                         lblEstado.IsVisible = true;
-                        lblEstado.Text = "Error, código incorrecto";
+                        lblEstado.Text = "Aviso, código incorrecto";
                         System.Drawing.Color adverC = advertenciaColor;
 
                         imgInfo.IsVisible=true;
                         imgInfo.Source = "Alerta.png";
                         imgInfo.TintColor = adverC;
-  
-                        lblEstado.BackgroundColor = adverC;
 
                         qrBtn.IsEnabled = true;
 
+                        lblEstado.BackgroundColor = adverC;
+                     
                         return;
                     }
                     //Si pudo transformar el texto a numerico valida si existe dentro del codigo de clientes

@@ -18,9 +18,11 @@ namespace MemoryClubApp.Views
         public static Xamarin.Forms.Color errorColor = Xamarin.Forms.Color.FromRgb(183, 0, 0);
         public static Xamarin.Forms.Color advertenciaColor = Xamarin.Forms.Color.FromRgb(255, 135, 1);
         public static System.Drawing.Color sdColor = System.Drawing.Color.FromArgb(38, 127, 0);
+        
         public static ClienteResponseModel clienteResponseModel = new ClienteResponseModel();
         public static List<ColaboradorModel> colabList = new List<ColaboradorModel>();
         public static List<ClienteModel> clienteModel = new List<ClienteModel>();
+        
         public static int numVal = 0;
         public Almuerzo(List<ColaboradorModel> colaboradorListModel)
         {
@@ -33,6 +35,7 @@ namespace MemoryClubApp.Views
             try
             {
                 clienteResponseModel = await new ClienteService().Cliente();
+
                 if (clienteResponseModel.success)
                 {
                     if (clienteResponseModel.ListaCliente.Count > 0)
@@ -53,7 +56,10 @@ namespace MemoryClubApp.Views
 
         private async void PruebaButton_Clicked(object sender, EventArgs e)
         {
+
+            imgInfo.IsVisible = false;
             lblEstado.IsVisible = false;
+
             try
             {
                 //var scanner = new ZXing.Mobile.MobileBarcodeScanner();
@@ -62,6 +68,7 @@ namespace MemoryClubApp.Views
 
                 //scanner.BottomText = "Holii";
                 var result = await scanner.Scan();
+
                 if (result != null)
                 {
                     //Trata de convertir el resultado Text a Entero
@@ -72,11 +79,21 @@ namespace MemoryClubApp.Views
                     catch
                     {
                         lblEstado.IsVisible = true;
-                        lblEstado.Text = "Error, código incorrecto";
+                        lblEstado.Text = "Aviso, código incorrecto";
+
                         System.Drawing.Color adverC = advertenciaColor;
+
                         lblEstado.BackgroundColor = adverC;
+
+                        imgInfo.IsVisible = true;
+                        imgInfo.Source = "Alerta.png";
+                        imgInfo.TintColor = adverC;
+
+                        qrBtn.IsEnabled = true;
+
                         return;
                     }
+
                     //Si pudo transformar el texto a numerico valida si existe dentro del codigo de clientes
                     Constantes tipoPersona = new Constantes();
                     CateringModel almuerzoModel = new CateringModel();
@@ -93,8 +110,17 @@ namespace MemoryClubApp.Views
                         {
                             lblEstado.IsVisible = true;
                             lblEstado.Text = "Código Incorrecto";
+
                             System.Drawing.Color adverC = advertenciaColor;
+
                             lblEstado.BackgroundColor = adverC;
+
+                            imgInfo.IsVisible = true;
+                            imgInfo.Source = "Alerta.png";
+                            imgInfo.TintColor = adverC;
+
+                            qrBtn.IsEnabled = true;
+
                             return;
                         }
 
@@ -116,15 +142,23 @@ namespace MemoryClubApp.Views
 
                     CateringResponseModel cateringResponseModel = new CateringResponseModel();
                     cateringResponseModel = await new AlmuerzoService().Almuerzo(almuerzoModel);
+                    
                     if (cateringResponseModel.Success)
                     {
                         // Implicitly convert from a System.Drawing.Color to a Xamarin.Forms.Color
                         Xamarin.Forms.Color xfColor2 = sdColor;
                         // Implicity convert from a Xamarin.Forms.Color to a System.Drawing.Color
                         System.Drawing.Color exitosoC = exitosoColor;
+
                         lblEstado.IsVisible = true;
                         lblEstado.Text = "Registro Exitoso!";
                         lblEstado.BackgroundColor = exitosoC;
+
+                        imgInfo.IsVisible = true;
+                        imgInfo.Source = "Aprobado.png";
+                        imgInfo.TintColor = exitosoC;
+
+                        qrBtn.IsEnabled = true;
                     }
                     else
                     {
@@ -132,6 +166,11 @@ namespace MemoryClubApp.Views
                         lblEstado.Text = cateringResponseModel.MessageError;
                         System.Drawing.Color errorC = errorColor;
                         lblEstado.BackgroundColor = errorC;
+                        imgInfo.IsVisible = true;
+                        imgInfo.Source = "Rechazado.png";
+                        imgInfo.TintColor = errorC;
+
+                        qrBtn.IsEnabled = true;
                     }
 
                 }
@@ -139,6 +178,7 @@ namespace MemoryClubApp.Views
             catch (Exception ex)
             {
                 await DisplayAlert("Advertencia", "Ha ocurrido un error &#10;" + ex.Message, "Ok");
+                qrBtn.IsEnabled = true;
             }
         }
     }

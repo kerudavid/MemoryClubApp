@@ -135,9 +135,9 @@ namespace MemoryClubApp.Views
                     string entrada = DateTime.Now.ToString("HH:mm");
 
                     almuerzoModel.Hora = DateTime.ParseExact(entrada, "HH:mm", null);
-                    string fecha = DateTime.Now.ToString("MM-dd-yyyy");
+                    string fecha = DateTime.Now.ToString("dd/MM/yyyy");
                     almuerzoModel.FechaMod = DateTime.Now.Date;
-                    almuerzoModel.Fecha = DateTime.ParseExact(fecha, "MM-dd-yyyy", null);
+                    almuerzoModel.Fecha = DateTime.ParseExact(fecha, "dd/MM/yyyy", null);
 
 
                     CateringResponseModel cateringResponseModel = new CateringResponseModel();

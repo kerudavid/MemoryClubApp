@@ -118,9 +118,9 @@ namespace MemoryClubApp.Views
                     string entrada = DateTime.Now.ToString("HH:mm");
 
                     asistencia.HoraEntrada = DateTime.ParseExact(entrada,"HH:mm",null);
-                    string fecha = DateTime.Now.ToString("MM-dd-yyyy");
+                    string fecha = DateTime.Now.ToString("dd/MM/yyyy");
                     asistencia.FechaMod = DateTime.Now.Date;
-                    asistencia.Fecha = DateTime.ParseExact(fecha,"MM-dd-yyyy",null);
+                    asistencia.Fecha = DateTime.ParseExact(fecha, "dd/MM/yyyy", null);
 
 
                     AsistenciaResponseModel asistenciaResponseModel = new AsistenciaResponseModel();

@@ -92,6 +92,11 @@ C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\res
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\res\mipmap-xxxhdpi\iconmemoria2.png
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\res\drawable\comida.png
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\res\drawable\sandwich.png
+C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\res\drawable\telefono_2.png
+C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\res\drawable\alerta.png
+C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\res\drawable\aprobado.png
+C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\res\drawable\close.png
+C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\res\drawable\rechazado.png
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\uploadflags.txt
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\resolvedassemblies.hash
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\android\assets\FastAndroidCamera.dll
@@ -299,10 +304,10 @@ C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\and
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\android\assets\ZXing.Net.Mobile.Forms.dll
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\android\assets\zxing.portable.dll
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\android\assets\ZXingNetMobile.dll
-C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\androidx\jl\7ea3a67b-3e4b-43a3-a5e2-9a76a494aece.jar
+C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\androidx\jl\2da801a8-1228-4e34-91d5-003590377bba.jar
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\stamp\_AndroidXJetifyJavaLibraryRules.stamp
-C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\androidx\proguard\65e9d25a-7717-42e4-8cee-a5217a1af438.txt
-C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\androidx\proguard\ad96e63b-dfbd-4dc5-a2aa-0c2fd69015d3.cfg
+C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\androidx\proguard\3fb094ab-269d-4955-b405-35ffd3952819.cfg
+C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\androidx\proguard\eb21a171-3d28-4422-b744-ac331433b6f8.txt
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\stamp\_AndroidXJetifyProguardRules.stamp
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\androidx\_AndroidXJetifyProguardRules.jetify
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\stamp\_AndroidXCecilfy.stamp
@@ -741,8 +746,3 @@ C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\sta
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\stamp\_GenerateJavaStubs.stamp
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\stamp\_ResolveLibraryProjectImports.stamp
-C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\res\drawable\telefono_2.png
-C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\res\drawable\alerta.png
-C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\res\drawable\aprobado.png
-C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\res\drawable\close.png
-C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp.Android\obj\Debug\120\res\drawable\rechazado.png

@@ -131,9 +131,9 @@ namespace MemoryClubApp.Views
                     string entrada = DateTime.Now.ToString("HH:mm");
 
                     transporteModel.Hora = DateTime.ParseExact(entrada, "HH:mm", null);
-                    string fecha = DateTime.Now.ToString("MM-dd-yyyy");
+                    string fecha = DateTime.Now.ToString("dd/MM/yyyy");
                     transporteModel.FechaMod = DateTime.Now.Date;
-                    transporteModel.Fecha = DateTime.ParseExact(fecha, "MM-dd-yyyy", null);
+                    transporteModel.Fecha = DateTime.ParseExact(fecha, "dd/MM/yyyy", null);
 
 
                     TransporteResponseModel transporteResponseModel = new TransporteResponseModel();

@@ -52,7 +52,10 @@ namespace MemoryClubApp.Views
                 int signaLevel = DependencyService.Get<IWifiSignal>().GetStrenght();
 
                 if (signaLevel <= 2.5 && signaLevel!=2022)
-                    await DisplayAlert("Alerta", "La velocidad de conexión es muy baja", "Ok");
+                {
+                    await PopupNavigation.Instance.PopAsync();
+                    await PopupNavigation.Instance.PushAsync(new Alert("Aviso", "La velocidad de conexión es muy baja " ));
+                }
 
                 try
                 {

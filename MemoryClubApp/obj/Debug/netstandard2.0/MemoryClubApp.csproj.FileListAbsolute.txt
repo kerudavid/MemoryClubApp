@@ -5,6 +5,7 @@ C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp\obj\Debug\netstandard2.0\
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp\obj\Debug\netstandard2.0\MemoryClubApp.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp\obj\Debug\netstandard2.0\PopUps\Alert.xaml.g.cs
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp\obj\Debug\netstandard2.0\PopUps\Loading.xaml.g.cs
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp\obj\Debug\netstandard2.0\Views\Almuerzo.xaml.g.cs
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp\obj\Debug\netstandard2.0\Views\Asistencia.xaml.g.cs
@@ -23,4 +24,3 @@ C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp\obj\Debug\netstandard2.0\
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp\obj\Debug\netstandard2.0\refint\MemoryClubApp.dll
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp\obj\Debug\netstandard2.0\MemoryClubApp.pdb
 C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp\obj\Debug\netstandard2.0\ref\MemoryClubApp.dll
-C:\Users\Keru\source\repos\MemoryClubApp\MemoryClubApp\obj\Debug\netstandard2.0\PopUps\Alert.xaml.g.cs

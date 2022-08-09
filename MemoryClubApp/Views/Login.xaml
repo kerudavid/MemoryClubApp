@@ -116,6 +116,7 @@
                                 <yummy:DropShadow Color="#000000" Offset="10,10" BlurRadius="5"/>
                             </yummy:PancakeView.Shadow>
                             <Button
+                                x:Name="btnIngresar"
                                 BackgroundColor="{StaticResource PrimaryColor}"
                                 WidthRequest="150"
                                 HeightRequest="40"

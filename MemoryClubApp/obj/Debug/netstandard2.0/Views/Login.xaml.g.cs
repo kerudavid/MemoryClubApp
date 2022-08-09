@@ -23,10 +23,14 @@ namespace MemoryClubApp.Views {
         private global::Global.InputForms.BlankEntry Password;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::Xamarin.Forms.Button btnIngresar;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(Login));
             Usuario = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Global.InputForms.BlankEntry>(this, "Usuario");
             Password = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Global.InputForms.BlankEntry>(this, "Password");
+            btnIngresar = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "btnIngresar");
         }
     }
 }

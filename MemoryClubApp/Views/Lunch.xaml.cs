@@ -129,7 +129,17 @@ namespace MemoryClubApp.Views
                     almuerzoModel.Usuario = Convert.ToInt32(Preferences.Get("IdUserName", "0"));
                     almuerzoModel.NombreUsuario = Preferences.Get("UserName", "0");
                     almuerzoModel.Sucursal = Convert.ToInt32(Preferences.Get("UserSucursal", "0"));
-                    almuerzoModel.TipoMenu = "Lunch";
+                    var hora = DateTime.Now.ToString("HH");
+
+                    if (int.Parse(hora) >= 14)
+                    {
+                        almuerzoModel.TipoMenu = "REFRIGERIO 2";
+                    }
+                    else 
+                    {
+                        almuerzoModel.TipoMenu = "REFRIGERIO 1";
+                    }
+                    
 
                     string entrada = DateTime.Now.ToString("HH:mm");
 

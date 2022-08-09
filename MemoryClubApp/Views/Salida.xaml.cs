@@ -122,7 +122,7 @@ namespace MemoryClubApp.Views
                     transporteModel.Usuario = Convert.ToInt32(Preferences.Get("IdUserName", "0"));
                     transporteModel.NombreUsuario = Preferences.Get("UserName", "0");
                     transporteModel.Sucursal = Convert.ToInt32(Preferences.Get("UserSucursal", "0"));
-                    transporteModel.EntradaSalida = "Salida";
+                    transporteModel.EntradaSalida = "SALIDA";
 
 
 

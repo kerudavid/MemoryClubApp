@@ -81,6 +81,9 @@ namespace MemoryClubApp.Views
                         
                         return;
                     }
+
+                    btnIngresar.IsEnabled = false;
+
                     UsuarioLoginModel usuario = new UsuarioLoginModel();
 
                     usuario.usuario = Usuario.Text;
@@ -112,9 +115,11 @@ namespace MemoryClubApp.Views
                        
                         _ = Navigation.PushAsync(new Login());
                     }
+                    btnIngresar.IsEnabled = true;
                 }
                 catch (Exception ex)
                 {
+                    btnIngresar.IsEnabled = true;
                     await PopupNavigation.Instance.PopAsync();
                     await PopupNavigation.Instance.PushAsync(new Alert("Error", "Ha ocurrido un error inesperado. Inténtelo de nuevo. " + ex.Message));
                     

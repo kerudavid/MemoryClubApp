@@ -48,23 +48,23 @@ namespace MemoryClubApp.Views
 
             if (current == NetworkAccess.Internet)
             {
-                Title = "Recuperación de Clases";
                 int signaLevel = DependencyService.Get<IWifiSignal>().GetStrenght();
 
                 if (signaLevel <= 2.5 && signaLevel!=2022)
                 {
                     await PopupNavigation.Instance.PopAsync();
-                    await PopupNavigation.Instance.PushAsync(new Alert("Aviso", "La velocidad de conexión es muy baja " ));
+                    await new Alert("Aviso", "La velocidad de conexión es muy baja " ).Wait();
+                    await PopupNavigation.Instance.PushAsync(new Loading(false));
                 }
 
                 try
                 {
-                    if (string.IsNullOrEmpty(Password.Text) || string.IsNullOrEmpty(Usuario.Text))
+                    if (string.IsNullOrEmpty(Password.Text) && string.IsNullOrEmpty(Usuario.Text))
                     {
-                        
+
                         await PopupNavigation.Instance.PopAsync();
                         await PopupNavigation.Instance.PushAsync(new Alert("Aviso", "Ingrese todos los campos"));
-                        
+
                         return;
                     }
                     if (string.IsNullOrEmpty(Password.Text))
@@ -80,7 +80,7 @@ namespace MemoryClubApp.Views
                         await PopupNavigation.Instance.PushAsync(new Alert("Aviso", "Ingrese el usuario"));
                         
                         return;
-                    }
+                    }                    
 
                     btnIngresar.IsEnabled = false;
 
@@ -130,6 +130,13 @@ namespace MemoryClubApp.Views
                 //var mainPage = Application.Current.MainPage;
                 SinInternet();
             }
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            //System.Diagnostics.Process.GetCurrentProcess().Kill();
+            System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
+            return true;
         }
     }
 }

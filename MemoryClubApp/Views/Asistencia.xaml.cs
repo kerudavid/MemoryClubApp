@@ -89,7 +89,7 @@ namespace MemoryClubApp.Views
                     //Si pudo transformar el texto a numerico valida si existe dentro del codigo de clientes
 
                     AsistenciaModel asistencia = new AsistenciaModel();
-                    asistencia.CodigoCliente = clienteModel.Where(x => x.CI == numVal.ToString()).Select(x => x.IdCliente).FirstOrDefault();// Where(x=> x.IdCliente==numVal);
+                    asistencia.CodigoCliente = clienteModel.Where(x => x.CI.Equals(numVal.ToString())).Select(x => x.IdCliente).FirstOrDefault();// Where(x=> x.IdCliente==numVal);
                     
                     if (asistencia.CodigoCliente <= 0)
                     {

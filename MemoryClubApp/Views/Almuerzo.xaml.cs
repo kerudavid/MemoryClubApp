@@ -98,12 +98,12 @@ namespace MemoryClubApp.Views
                     Constantes tipoPersona = new Constantes();
                     CateringModel almuerzoModel = new CateringModel();
 
-                    almuerzoModel.CodigoPersona = clienteModel.Where(x => x.CI == numVal.ToString()).Select(x => x.IdCliente).FirstOrDefault();// Where(x=> x.IdCliente==numVal);
+                    almuerzoModel.CodigoPersona = clienteModel.Where(x => x.CI == result.Text).Select(x => x.IdCliente).FirstOrDefault();
                     almuerzoModel.TipoPersona = tipoPersona.GetCliente();
 
                     if (almuerzoModel.CodigoPersona <= 0)
                     {
-                        almuerzoModel.CodigoPersona = colabList.Where(p => p.CIColaborador == numVal.ToString()).Select(p => p.IdColaborador).FirstOrDefault();
+                        almuerzoModel.CodigoPersona = colabList.Where(p => p.CIColaborador == result.Text).Select(p => p.IdColaborador).FirstOrDefault();
                         almuerzoModel.TipoPersona = tipoPersona.GetColaborador();
 
                         if (almuerzoModel.CodigoPersona <= 0)
@@ -135,9 +135,9 @@ namespace MemoryClubApp.Views
                     string entrada = DateTime.Now.ToString("HH:mm");
 
                     almuerzoModel.Hora = DateTime.ParseExact(entrada, "HH:mm", null);
-                    string fecha = DateTime.Now.ToString("dd/MM/yyyy");
-                    almuerzoModel.FechaMod = DateTime.Now.Date;
-                    almuerzoModel.Fecha = DateTime.ParseExact(fecha, "dd/MM/yyyy", null);
+                    string fecha = DateTime.Now.ToString("MM/dd/yyyy");
+                    almuerzoModel.FechaMod = DateTime.ParseExact(fecha, "MM/dd/yyyy", null);
+                    almuerzoModel.Fecha = DateTime.ParseExact(fecha, "MM/dd/yyyy", null);
 
 
                     CateringResponseModel cateringResponseModel = new CateringResponseModel();

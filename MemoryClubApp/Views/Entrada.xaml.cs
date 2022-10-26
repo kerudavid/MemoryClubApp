@@ -97,7 +97,7 @@ namespace MemoryClubApp.Views
                     Constantes tipoPersona = new Constantes();
                     TransporteModel transporteModel = new TransporteModel();
 
-                    transporteModel.CodigoPersona = clienteModel.Where(x => x.CI == numVal.ToString()).Select(x => x.IdCliente).FirstOrDefault();// Where(x=> x.IdCliente==numVal);
+                    transporteModel.CodigoPersona = clienteModel.Where(x => x.CI == result.Text).Select(x => x.IdCliente).FirstOrDefault();// Where(x=> x.IdCliente==numVal);
                     transporteModel.TipoPersona = tipoPersona.GetCliente();
                     
                     if (transporteModel.CodigoPersona <= 0)
@@ -118,7 +118,7 @@ namespace MemoryClubApp.Views
                         return;                     
                     }
 
-                    transporteModel.IdTransportista = clienteModel.Where(x => x.CI == numVal.ToString()).Select(x => x.IdTransportista).FirstOrDefault();
+                    transporteModel.IdTransportista = clienteModel.Where(x => x.CI == result.Text).Select(x => x.IdTransportista).FirstOrDefault();
 
                     //Asisgna nos valores del objeto asistecia
                     transporteModel.Usuario = Convert.ToInt32(Preferences.Get("IdUserName", "0"));
@@ -131,9 +131,9 @@ namespace MemoryClubApp.Views
                     string entrada = DateTime.Now.ToString("HH:mm");
 
                     transporteModel.Hora = DateTime.ParseExact(entrada, "HH:mm", null);
-                    string fecha = DateTime.Now.ToString("dd/MM/yyyy");
-                    transporteModel.FechaMod = DateTime.Now.Date;
-                    transporteModel.Fecha = DateTime.ParseExact(fecha, "dd/MM/yyyy", null);
+                    string fecha = DateTime.Now.ToString("MM/dd/yyyy");
+                    transporteModel.FechaMod = DateTime.ParseExact(fecha, "MM/dd/yyyy", null);
+                    transporteModel.Fecha = DateTime.ParseExact(fecha, "MM/dd/yyyy", null);
 
 
                     TransporteResponseModel transporteResponseModel = new TransporteResponseModel();

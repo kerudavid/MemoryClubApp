@@ -11,7 +11,9 @@ namespace MemoryClubApp
             get
             {
                 return "http://clubmemoria-001-site1.atempurl.com/";
-                    //LocalPruebas: "http://192.168.100.11:45455/";
+
+                //Prduccion: "http://clubmemoria-001-site1.atempurl.com/";
+                //LocalPruebas: "http://192.168.100.11:45455/";
 
             }
         }
